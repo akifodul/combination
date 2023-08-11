@@ -1,17 +1,39 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        int nfactorial = 1, rfactorial = 1, nMinusRfactorial = 1, nMinusR, n, r;
+        Scanner input = new Scanner(System.in);
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        System.out.println("n değerini giriniz: ");
+        n = input.nextInt();
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        System.out.println("r değerini giriniz: ");
+        r = input.nextInt();
+
+        nMinusR = n-r;
+
+        // Kombinasyon formülü = C(n,r) = (r! * (n-r)!)
+
+        for (int i = 1; i <= n; i++) {
+            nfactorial = nfactorial * i;
         }
+
+        for (int i = 1; i <= r; i++) {
+            rfactorial = rfactorial * i;
+        }
+
+        for (int i = 1; i <= nMinusR; i++) {
+            nMinusRfactorial = nMinusRfactorial * i;
+        }
+
+        System.out.println("nfactorial: " + nfactorial);
+
+        System.out.println("rfactorial: " + rfactorial);
+
+        System.out.println("nMinusR factorial: " + nMinusRfactorial);
+
+        System.out.println("C(n,r) = " +nfactorial / (rfactorial * nMinusRfactorial));
+
     }
 }
